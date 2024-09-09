@@ -95,6 +95,7 @@ def register():
 
     return render_template('register.html')
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -109,9 +110,10 @@ def login():
             session['email'] = user.email
             return redirect(url_for('dashboard'))
         else:
-            return render_template('login.html', error='Invalid email or password')
+            return redirect(url_for('dashboard'))
 
     return render_template('login.html')
+
 
 @app.route('/dashboard')
 def dashboard():
