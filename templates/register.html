@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="https://iili.io/d8t0FpI.md.jpg" type="image/png">
+    <title>Signup to Speech Therapy</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form method="POST" action="{{ url_for('register') }}">
+                <h1>Create Patient Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <span>or use the form below for registration</span>
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="text" name="phone_number" placeholder="Phone Number" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <select name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <textarea name="medical_history" placeholder="Medical History" rows="4" required></textarea>
+                <input type="text" name="emergency_contact" placeholder="Emergency Contact" required>
+                <textarea name="therapy_goals" placeholder="Therapy Goals" rows="4"></textarea>
+                <textarea name="progress_notes" placeholder="Progress Notes" rows="4"></textarea>
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
