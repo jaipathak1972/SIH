@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="icon" href="https://iili.io/d8t0FpI.md.jpg" type="image/png">
-
-    <link rel="stylesheet" href="static\css\patient_dashboard.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="icon" href="https://iili.io/d8t0FpI.md.jpg" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="SIH\static\javascript\script.js"></script>
+    <link rel="stylesheet" href="static\css\patient_dashboard.css" />
+  </head>
+  <body>
     <div class="container">
-        <!-- aside section start -->
-        <aside>
-             <div class="top">
-                <!-- logo -->
-                <div class="logo">
-                    <img src="https://iili.io/d8uRziv.png" alt="Logo">
-                    <h2>SC<span class="danger">HUB</span></h2>
+      <!-- aside section start -->
+      <aside>
+        <div class="top">
+          <!-- logo -->
+          <div class="logo">
+            <img src="https://iili.io/d8uRziv.png" alt="Logo" />
+            <h2>SC<span class="danger">HUB</span></h2>
+          </div>
+          <!-- close button -->
+          <div class="close">
+            <span class="material-symbols-outlined"> close </span>
+          </div>
+        </div>
+        <!-- end top -->
+        <!-- side bar start -->
+        <div class="sidebar">
+          <a href="#" class="active">
+            <span class="material-symbols-outlined">grid_view</span>
+            <h3>Overview</h3>
+          </a>
+          <a href="#">
+            <span class="material-symbols-outlined">medication</span>
+            <h3>Doctors</h3>
+          </a>
+          <a href="#">
+            <span class="material-symbols-outlined">history</span>
+            <h3>History</h3>
+          </a>
+          <a href="#">
+            <span class="material-symbols-outlined">insert_chart</span>
+            <h3>Analysis</h3>
+          </a>
+          <a href="#">
+            <span class="material-symbols-outlined">chat</span>
+            <h3>Feedback</h3>
+          </a>
+          <a href="#">
+            <span class="material-symbols-outlined">psychology</span>
+            <h3>AI Therapist</h3>
+          </a>
+          <a href="#">
+            <span class="material-symbols-outlined">logout</span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+      <!-- main section start -->
+      <main>
+        <!-- upper container -->
+        <div class="container2">
+          <!-- profile continer -->
+          <div class="container2_1">
+            <div class="img"></div>
+            <span>AI Agents</span>
+            <p>7896-8951-2354</p>
+            <div class="info">
+                <span>Details</span>
+            </div>
+            <div class="info2">
+                <div class="key">
+                    <span>Patient Age :</span>
+                    <span>Blood Group :</span>
+                    <span>Height (m) :</span>
+                    <span>Weight (kg) :</span>
                 </div>
-                <!-- close button -->
-                <div class="close">
-                    <span class="material-symbols-outlined">
-                        close
-                        </span>
+                <div class="value">
+                    <span>23 Year</span>
+                    <span>o+</span>
+                    <span>1.78</span>
+                    <span>50</span>
                 </div>
             </div>
-             <!-- end top -->
-              <!-- side bar start -->
-            <div class="sidebar">
-                <a href="#" class="active">
-                    <Span class="material-symbols-outlined">grid_view</Span>
-                    <h3>Overview</h3>
-                </a>
-                <a href="#">
-                    <Span class="material-symbols-outlined">medication</Span>
-                    <h3>Doctors</h3>
-                </a>
-                <a href="#">
-                    <Span class="material-symbols-outlined">history</Span>
-                    <h3>History</h3>
-                </a>
-                <a href="#">
-                    <Span class="material-symbols-outlined">insert_chart</Span>
-                    <h3>Analysis</h3>
-                </a>
-                <a href="#">
-                    <Span class="material-symbols-outlined">chat</Span>
-                    <h3>Feedback</h3>
-                </a>
-                <a href="#">
-                    <Span class="material-symbols-outlined">psychology</Span>
-                    <h3>AI Therapist</h3>
-                </a>
-                <a href="#">
-                    <Span class="material-symbols-outlined">logout</Span>
-                    <h3>Logout</h3>
-                </a>
-            </div>   
-        </aside>
-        <!-- main section start -->
-         <main>
-
-         </main>
-         <!-- right section start -->
-          <div class="right">
-            
           </div>
+          <div class="container2_2">
+            <!-- upper chart -->
+            <div class="container2_2_1">
+              <div>
+                <div class="water_chart">
+                  <span>Water Retention</span>
+                  <canvas id="chart1_1" width="5em" height="2rem"></canvas>
+                </div>
+              </div>
+              <div class="general">
+                <span>General Health</span>
+                <div>
+                  <canvas id="chart1_2" width="2rem" height="2em"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- lower chart -->
+            <div class="container2_2_2">
+              <div>
+                <span>Your Activity</span>
+                <canvas id="chart2" width="10rem" height="3rem"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- graph1 container -->
+        <div class="container3">
+          <span>Your Health Condition</span>
+          <div>
+            <canvas id="chart3" width="40rem" height="12rem"></canvas>
+          </div>
+        </div>
+      </main>
+      <!-- right section start -->
+      <div class="right">
+        <div class="title">
+            <span>Doctor Appointment</span>
+        </div>
+        <!-- calender container -->
+      </div>
     </div>
-</body>
+  </body>
 </html>
+
+
