@@ -100,20 +100,35 @@ def register():
 def login():
     if request.method == 'POST':
         email = request.form['email']
-        password = request.form['password']
+        password = request.form['password']  # Fetch raw password from form
 
         # Query user by email
         user = User.query.filter_by(email=email).first()
 
-        # Check if the user exists and password matches
-        if user and user.check_password(password):
-            session['email'] = user.email
-            return redirect(url_for('dashboard'))
+        if user:
+            # Print the password hash stored in the database for the entered email
+            print(f"Stored Password Hash for {email}: {user.password_hash}")
+
+            # Debugging: Print the raw password entered by the user
+            print(f"Entered Password: {password}")
+
+            # Debugging: Print the actual password stored in the database (only if it's stored in plain text)
+            print(f"Stored Password (Plain Text) for {email}: {user.password}")
+
+            # Check if the password matches the hashed password stored in the database
+            if user.check_password(password):  # Password verification
+                session['email'] = user.email
+                user.last_login = datetime.utcnow()  # Update last_login timestamp
+                db.session.commit()  # Save the login time
+                return redirect(url_for('dashboard'))
+            else:
+                error = 'Invalid email or password. Please try again.'
+                return render_template('login.html', error=error)
         else:
-            return redirect(url_for('dashboard'))
+            error = 'Invalid email or password. Please try again.'
+            return render_template('login.html', error=error)
 
     return render_template('login.html')
-
 
 @app.route('/dashboard')
 def dashboard():
@@ -130,3 +145,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
