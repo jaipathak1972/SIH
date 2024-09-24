@@ -6,11 +6,12 @@ from datetime import datetime
 app = Flask(__name__)
 
 # MySQL connection config
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Ahmed#2909@localhost/speechcare'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:jaipathak2005@localhost/speechcare'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secret_key'
 
 db = SQLAlchemy(app)
+
 
 # User model with all fields from the registration form
 class User(db.Model):
@@ -145,4 +146,5 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
