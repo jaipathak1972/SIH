@@ -1,0 +1,2 @@
+class Sha256Point:
+    
